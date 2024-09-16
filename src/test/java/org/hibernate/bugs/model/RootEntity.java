@@ -1,5 +1,6 @@
 package org.hibernate.bugs.model;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
@@ -21,7 +22,7 @@ public class RootEntity {
   @TenantId
   private String tenant;
 
-  @OneToOne(mappedBy = "rootEntity")
+  @OneToOne(mappedBy = "rootEntity", cascade = CascadeType.PERSIST)
   private ChildEntity childEntity;
 
   public RootEntity() {
